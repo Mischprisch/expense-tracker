@@ -25,5 +25,7 @@ list_parser = commands.add_parser("list")
 
 args = parser.parse_args()
 
-if args.add():
-    add_expense
+if args.command == "add":
+    add_expense(args.description,args.amount)
+elif args.command == "list":
+    list_expenses()
