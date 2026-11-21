@@ -4,8 +4,8 @@ import argparse
 all_expenses = []
 
 def add_expense(description,amount):
-    all_expenses.append({description,amount})
-    print(f"Expense added successfully (ID:{all_expenses.index({description,amount})+1})")
+    all_expenses.append({"description":description,"amount":amount})
+    print(f"Expense added successfully (ID:{all_expenses.index({"description":description,"amount":amount})+1})")
 
 
 def list_expenses():
