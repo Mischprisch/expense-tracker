@@ -16,8 +16,9 @@ parser = argparse.ArgumentParser(prog="expense-tracker")
 
 commands = parser.add_subparsers(dest="command", required=True)
 
-add_parser = commands.add_parser("add", help="add an expense")
-add_parser.add_argument("expense")
+add_parser = commands.add_parser("add")
+add_parser.add_argument("--description")
+add_parser.add_argument("--amount")
 
 description_parser = commands.add_parser("--description")
 description_parser.add_argument("description")
