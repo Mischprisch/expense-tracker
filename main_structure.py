@@ -2,9 +2,14 @@ import argparse
 
 all_expenses = []
 
-def add_expense(expense):
-    all_expenses.append(expense)
-    print(f"expense: {args.add}, description: {args.description}")
+def add_expense(description,amount):
+    all_expenses.append({description,amount})
+    print(f"Expense added successfully (ID:{all_expenses.index({description,amount})+1})")
+
+
+def list_expenses():
+    for expense in all_expenses:
+        print(expense)
 
 
 parser = argparse.ArgumentParser(prog="expense-tracker")
