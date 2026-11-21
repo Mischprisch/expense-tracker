@@ -20,8 +20,8 @@ add_parser = commands.add_parser("add")
 add_parser.add_argument("--description")
 add_parser.add_argument("--amount")
 
-description_parser = commands.add_parser("--description")
-description_parser.add_argument("description")
+list_parser = commands.add_parser("list")
+
 
 args = parser.parse_args()
 
