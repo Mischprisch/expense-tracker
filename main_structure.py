@@ -20,7 +20,7 @@ def add_expense(description,amount):
         return
     expense = {"description":description,"amount":amount}
     all_expenses.append(expense)
-    print(f"Expense added successfully (ID: {all_expenses.index(expense)+1})")
+    print(f"Expense added successfully (ID: {all_expenses.index(expense) + 1})")
     save_data()
 
 
