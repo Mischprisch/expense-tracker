@@ -1,7 +1,10 @@
 import json
 import argparse
 
-all_expenses = []
+with open("expenses.json", "r") as f:
+    data = json.load(f)
+
+all_expenses = data
 
 def add_expense(description,amount):
     expense = {"description":description,"amount":amount}
