@@ -44,8 +44,6 @@ def delete_expense(id):
         print("List index out of range")
 
 
-
-
 parser = argparse.ArgumentParser(prog="expense-tracker")
 
 commands = parser.add_subparsers(dest="command", required=True)
