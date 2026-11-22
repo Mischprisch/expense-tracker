@@ -12,7 +12,7 @@ def add_expense(description,amount):
     if expense in all_expenses:
         return
     all_expenses.append(expense)
-    print(f"Expense added successfully (ID:{all_expenses.index(expense)+1})")
+    print(f"Expense added successfully (ID: {all_expenses.index(expense)+1})")
     with open("expenses.json", "w") as f:
         json.dump(all_expenses, f, indent=2)
 
