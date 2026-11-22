@@ -9,6 +9,8 @@ all_expenses = data
 
 def add_expense(description,amount):
     expense = {"description":description,"amount":amount}
+    if expense in all_expenses:
+        return
     all_expenses.append(expense)
     print(f"Expense added successfully (ID:{all_expenses.index(expense)+1})")
     with open("expenses.json", "w") as f:
@@ -25,8 +27,8 @@ parser = argparse.ArgumentParser(prog="expense-tracker")
 commands = parser.add_subparsers(dest="command", required=True)
 
 add_parser = commands.add_parser("add")
-add_parser.add_argument("--description")
-add_parser.add_argument("--amount")
+add_parser.add_argument("-d","--description")
+add_parser.add_argument("-a","--amount")
 
 list_parser = commands.add_parser("list")
 
