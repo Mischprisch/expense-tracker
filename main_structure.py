@@ -4,8 +4,11 @@ import argparse
 all_expenses = []
 
 def add_expense(description,amount):
-    all_expenses.append({"description":description,"amount":amount})
-    print(f"Expense added successfully (ID:{all_expenses.index({"description":description,"amount":amount})+1})")
+    expense = {"description":description,"amount":amount}
+    all_expenses.append(expense)
+    print(f"Expense added successfully (ID:{all_expenses.index(expense)+1})")
+    with open("expenses.json", "w") as f:
+        json.dump(all_expenses, f, indent=2)
 
 
 def list_expenses():
