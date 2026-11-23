@@ -13,12 +13,16 @@ def save_data():
 
 
 def add_expense(description,amount):
+    if amount is None or description is None:
+        print("Provide a description and a amount")
+        return
     if amount <= 0:
         print("Amount cannot be below or equal to €0")
         return
-    elif expense in all_expenses:
+    expense = {"description": description, "amount": amount}
+    if expense in all_expenses:
+        print("Expense already exists")
         return
-    expense = {"description":description,"amount":amount}
     all_expenses.append(expense)
     print(f"Expense added successfully (ID: {all_expenses.index(expense) + 1})")
 
@@ -45,8 +49,9 @@ def update_expense(id,description,amount):
 
 
 def list_expenses():
+    print("ID  Description  Amount")
     for expense in all_expenses:
-        print(expense)
+        print(f"{all_expenses.index(expense) + 1}   {expense["description"]}  €{expense["amount"]}")
 
 
 def summary():
@@ -59,33 +64,42 @@ def delete_expense(id):
         expense = all_expenses[int(id)-1]
         all_expenses.remove(expense)
         print("Expense deleted successfully")
-        save_data()
     except IndexError:
         print("List index out of range")
 
 
 parser = argparse.ArgumentParser(prog="expense-tracker")
 
-commands = parser.add_subparsers(dest="command", required=True)
+commands = parser.add_subparsers(dest="command",required=True)
 
 add_parser = commands.add_parser("add")
 add_parser.add_argument("-d","--description")
-add_parser.add_argument("-a","--amount", type=float)
+add_parser.add_argument("-a","--amount",type=float)
+
+update_parser = commands.add_parser("update")
+update_parser.add_argument("-id","--id",type=int)
+update_parser.add_argument("-d","--description")
+update_parser.add_argument("-a","--amount",type=float)
 
 list_parser = commands.add_parser("list")
 
 summary_parser = commands.add_parser("summary")
 
 delete_parser = commands.add_parser("delete")
-delete_parser.add_argument("-id","--id")
+delete_parser.add_argument("-id", "--id")
 
 args = parser.parse_args()
 
 if args.command == "add":
     add_expense(args.description,args.amount)
+    save_data()
+elif args.command == "update":
+    update_expense(args.id,args.description,args.amount)
+    save_data()
 elif args.command == "list":
     list_expenses()
 elif args.command == "summary":
     summary()
 elif args.command == "delete":
     delete_expense(args.id)
+    save_data()
