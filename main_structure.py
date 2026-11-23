@@ -21,7 +21,27 @@ def add_expense(description,amount):
     expense = {"description":description,"amount":amount}
     all_expenses.append(expense)
     print(f"Expense added successfully (ID: {all_expenses.index(expense) + 1})")
-    save_data()
+
+
+def update_expense(id,description,amount):
+    new_expense = {"description": description, "amount": amount}
+    new_description = new_expense["description"]
+    new_amount = new_expense["amount"]
+    expense = all_expenses[id-1]
+    if description and amount is None:
+        expense["description"] = new_description
+        print("Expense description updated successfully")
+        return
+    if amount and description is None:
+        expense["amount"] = new_amount
+        print("Expense amount updated successfully")
+        return
+    elif description is None and amount is None:
+        print("Input a value please")
+        return
+    else:
+        all_expenses[id-1] = new_expense
+        print("Expense updated successfully")
 
 
 def list_expenses():
