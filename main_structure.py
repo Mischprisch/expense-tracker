@@ -77,15 +77,12 @@ def summary(month):
     except ValueError:
         print("Put in a number between 1 and 12")
         return
-    try:
-        for expense in all_expenses:
-            m = expense["date"][3] + expense["date"][4]
-            d = dt.datetime.strptime(f"{month}", "%m")
-            d = d.strftime("%B")
-            total = sum(expense["amount"] for expense["date"][m] in all_expenses)
+    for expense in all_expenses:
+        m = expense["date"][3] + expense["date"][4]
+        d = dt.datetime.strptime(f"{month}", "%m")
+        d = d.strftime("%B")
+        total = sum(expense["amount"] for expense["date"][m] in all_expenses)
     print(f"Total expenses for {d}: €{round(total, 2)}")
-    except UnboundLocalError:
-        print(f"no expenses found for {d}")
 
 
 
