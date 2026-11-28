@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: expense-tracker
+Version: 0.1.0
+Summary: A CLI that tracks and displays expenses
+Requires-Python: >3.12

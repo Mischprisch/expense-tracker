@@ -1,0 +1,11 @@
+[project]
+name = "expense-tracker"
+version = "0.1.0"
+description = "A CLI that tracks and displays expenses"
+requires-python = ">3.12"
+
+[project.scripts]
+expense-tracker = "main_structure:main"
+
+[tool.setuptools]
+py-modules = ["main_structure"]

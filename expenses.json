@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "date": "27-11-2026",
+    "description": "Diner",
+    "amount": 100.0
+  },
+  {
+    "date": "27-11-2026",
+    "description": "Lunch",
+    "amount": 24.99
+  },
+  {
+    "date": "27-08-2026",
+    "description": "Lllunch",
+    "amount": 29.99
+  },
+  {
+    "date": "27-02-2026",
+    "description": "Dinnner",
+    "amount": 31.99
+  },
+  {
+    "date": "27-01-2026",
+    "description": "Lfunch",
+    "amount": 24.55
+  },
+  {
+    "date": "27-11-2026",
+    "description": "Lahanch",
+    "amount": 49.24
+  },
+  {
+    "date": "28-11-2026",
+    "description": "lunch",
+    "amount": 22.0
+  },
+  {
+    "date": "28-01-2026",
+    "description": "brecky",
+    "amount": 19.99
+  }
+]

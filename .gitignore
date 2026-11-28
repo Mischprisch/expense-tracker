@@ -1,1 +1,5 @@
 .idea\
+.venv\
+build\
+expense_tracker.egg-info\
+
